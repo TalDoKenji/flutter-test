@@ -1,14 +1,57 @@
-import 'package:atividade0909/pages/mapaPage.dart';
-import 'package:atividade0909/repositories/mapaRepository.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
 
-Future<void> _createWidget(WidgetTester tester) async {
-  await tester.pumpWidget(MaterialApp(
-    title: 'Mapas',
-    theme: ThemeData(
-      primarySwatch: Colors.blue,
-    ),
-  ));
-  await tester.pump();
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: CounterPage(),
+    );
+  }
+}
+
+class CounterPage extends StatefulWidget {
+  @override
+  _CounterPageState createState() => _CounterPageState();
+}
+
+class _CounterPageState extends State<CounterPage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Teste de Widget em Flutter'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Você pressionou o botão tantas vezes:',
+            ),
+            Text(
+              '$_counter',
+              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ),
+    );
+  }
 }

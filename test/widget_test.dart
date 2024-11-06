@@ -12,11 +12,26 @@ import 'package:atividade0909/repositories/mapaRepository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-void main() {
-  testWidgets('Testa mapa selecionado', (WidgetTester tester) async {
-    await _createWidget(tester);
+import 'repositories/widget/listMapWidget.dart';
 
-    expect(find.text('Mapas'), findsOneWidget);
+void main() {
+  testWidgets('Teste de incremento do contador', (WidgetTester tester) async {
+    // Constrói o widget e o insere na árvore de widgets.
+    await tester.pumpWidget(MyApp());
+
+    // Verifica se o texto inicial está correto.
+    expect(find.text('0'), findsOneWidget);
+    expect(find.text('1'), findsNothing);
+
+    // Simula o toque no botão de incremento.
+    await tester.tap(find.byIcon(Icons.add));
+
+    // Rebuild the widget after the state has changed.
+    await tester.pump();
+
+    // Verifica se o contador foi incrementado.
+    expect(find.text('0'), findsNothing);
+    expect(find.text('1'), findsOneWidget);
   });
 
   group('testando app', () {
@@ -41,8 +56,7 @@ void main() {
 }
 
 Future<void> _createWidget(WidgetTester tester) async {
-  await tester.pumpWidget(
-    MaterialApp(
+  await tester.pumpWidget(MaterialApp(
     title: 'Mapas',
     theme: ThemeData(
       primarySwatch: Colors.blue,
