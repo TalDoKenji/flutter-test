@@ -2,28 +2,6 @@
   "agentes": [],
   "comps": [
     {
-      "id": "f57c",
-      "data": {
-        "mapName": "Ascent",
-        "comp": [
-          {
-            "displayName": "Fade",
-            "displayIcon": "https://media.valorant-api.com/agents/dade69b4-4f5a-8528-247b-219e5a1facd6/displayicon.png",
-            "role": {
-              "displayName": "Initiator"
-            }
-          },
-          {
-            "displayName": "Breach",
-            "displayIcon": "https://media.valorant-api.com/agents/5f8d3a7f-467b-97f3-062c-13acf203c006/displayicon.png",
-            "role": {
-              "displayName": "Initiator"
-            }
-          }
-        ]
-      }
-    },
-    {
       "id": "88c4",
       "data": {
         "mapName": "Ascent",
@@ -47,36 +25,6 @@
             "displayIcon": "https://media.valorant-api.com/agents/eb93336a-449b-9c1b-0a54-a891f7921d69/displayicon.png",
             "role": {
               "displayName": "Duelist"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "87c4",
-      "data": {
-        "mapName": "Ascent",
-        "comp": [
-          {
-            "displayName": "Cypher",
-            "displayIcon": "https://media.valorant-api.com/agents/117ed9e3-49f3-6512-3ccf-0cada7e3823b/displayicon.png",
-            "role": {
-              "displayName": "Sentinel"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "id": "1acd",
-      "data": {
-        "mapName": "Ascent",
-        "comp": [
-          {
-            "displayName": "Killjoy",
-            "displayIcon": "https://media.valorant-api.com/agents/1e58de9c-4950-5125-93e9-a0aee9f98746/displayicon.png",
-            "role": {
-              "displayName": "Sentinel"
             }
           }
         ]

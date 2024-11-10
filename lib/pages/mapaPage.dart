@@ -160,12 +160,11 @@ class _MapaPageStates extends State<MapaPage> {
             TextButton(
               child: const Text('Excluir'),
               onPressed: () async {
-                
                 await agenteService.deleteComp(
                     idComp ?? "pipi"); // Chama a função para remover o item
                 Navigator.of(context).pop(); // Fecha o diálogo
                 setState(() {
-                  
+                  listComps.removeWhere((comp) => comp[0].idComp == idComp);
                 });
               },
             ),
