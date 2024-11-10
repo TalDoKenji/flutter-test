@@ -1,29 +1,36 @@
+import 'package:flutter/foundation.dart';
+
 class Agente {
-  final String _nome;
-  final String _icone;
-  final String _funcao;
+  final String idComp;
+  final String nome;
+  final String icone;
+  final String funcao;
 
-  Agente({required String nome, required String icone, required String funcao})
-      : _nome = nome,
-        _icone = icone,
-        _funcao = funcao;
+  Agente(
+      {required this.idComp,
+      required this.nome,
+      required this.icone,
+      required this.funcao});
 
-  factory Agente.fromJson(dynamic json) {
-    return Agente(
+  factory Agente.fromJson(Map<String, dynamic> json, String idComp) {
+    var agente = Agente(
+        idComp: idComp,
         nome: json["displayName"],
         icone: json["displayIcon"],
         funcao: json["role"]["displayName"]);
+    return agente;
   }
 
-  String get nome {
-    return _nome;
+  Map<String, dynamic> toMap() {
+    return {
+      "displayName": nome,
+      "displayIcon": icone,
+      "role": {"displayName": funcao}
+    };
   }
 
-  String get icone {
-    return _icone;
-  }
-
-  String get funcao {
-    return _funcao;
+  @override
+  String toString() {
+    return idComp ?? "";
   }
 }

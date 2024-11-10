@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 class Mapa {
   final String _nome;
   final String _icone;
@@ -13,6 +15,15 @@ class Mapa {
         _icone = icone,
         _coordenadas = coordenadas,
         _displayMap = displayMap;
+
+  factory Mapa.fromJson(dynamic json) {
+    return Mapa(
+      nome: json['displayName'],
+      icone: json['splash'],
+      coordenadas: json['coordinates'],
+      displayMap: json['splash']
+    );
+  }
 
   String get nome {
     return _nome;

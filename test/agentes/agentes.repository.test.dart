@@ -12,7 +12,7 @@ void main() {
     agentesReposisory = AgentesReposisory();
 
     Agente agente =
-        Agente(nome: 'Jett', icone: 'images/Jett.png', funcao: 'Duelista');
+        Agente(idComp: "1111",nome: 'Jett', icone: 'images/Jett.png', funcao: 'Duelista');
     when(agentesReposisory.findAll()).thenAnswer((_) async => [agente]);
   });
 

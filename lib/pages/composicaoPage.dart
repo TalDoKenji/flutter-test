@@ -1,6 +1,7 @@
 import 'package:atividade0909/models/agente.dart';
 import 'package:atividade0909/repositories/agenteRepository.dart';
 import 'package:flutter/material.dart';
+import 'package:atividade0909/services/agentes.service.dart';
 
 class Composicaopage extends StatefulWidget {
   const Composicaopage();
@@ -13,11 +14,19 @@ class ComposicaoPage extends State<Composicaopage> {
   List<Agente> selectedagentes = [];
   List<Agente> foundAgentes = [];
   List<Agente> allAgentes = AgentesReposisory.agentes;
+  final IAgenteService agenteService = AgenteService();
 
   @override
   initState() {
-    foundAgentes = allAgentes;
+    _initAgentes();
     super.initState();
+  }
+
+  Future<void> _initAgentes() async {
+    await Future.delayed(const Duration(seconds: 2), () async {
+      foundAgentes = await agenteService.getAgentes();
+    });
+    setState(() {});
   }
 
   void filterAgentes(String input) {
@@ -68,7 +77,7 @@ class ComposicaoPage extends State<Composicaopage> {
                   elevation: 4,
                   margin: const EdgeInsets.symmetric(vertical: 5),
                   child: ListTile(
-                    leading: Image.asset(foundAgentes[index].icone),
+                    leading: Image.network(foundAgentes[index].icone),
                     title: Text(foundAgentes[index].nome),
                     subtitle: Text(foundAgentes[index].funcao),
                     selected: selectedagentes.contains(foundAgentes[index]),
